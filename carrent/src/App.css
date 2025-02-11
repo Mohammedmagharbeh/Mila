@@ -1,0 +1,532 @@
+body {
+  font-family: 'Poppins', sans-serif;
+background-color: rgb(70, 63, 63);
+ 
+  /* background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhcnxlbnwwfHwwfHx8MA%3D%3D'); */
+  background-repeat: no-repeat; /* لمنع التكرار */
+  background-size: cover; /* لتغطية الخلفية بالكامل */
+  background-position: center; /* لتركيز الصورة في المنتصف */
+  margin: 0;
+  padding: 20px;
+  color: #0e0505;
+  overflow-x: hidden;
+}
+
+/* تنسيق حاوية البطاقات */
+.cars-container {
+  margin-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* تنسيق بطاقة السيارة */
+.car-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-card::before {
+  content: "🚗";
+  font-size: 30px;
+  position: absolute;
+  bottom: 10px;
+  left: -50px;
+  animation: driveCar 5s linear infinite;
+}
+
+@keyframes driveCar {
+  0% { left: -50px; transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { left: 110%; transform: rotate(0deg); }
+}
+
+.car-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ألوان البطاقات */
+.car-card:nth-child(1) { border-left-color: #ff6b6b; }
+.car-card:nth-child(2) { border-left-color: #ffa502; }
+.car-card:nth-child(3) { border-left-color: #2ed573; }
+.car-card:nth-child(4) { border-left-color: #1e90ff; }
+.car-card:nth-child(5) { border-left-color: #ff4757; }
+.car-card:nth-child(6) { border-left-color: #9b59b6; }
+
+.car-card h2 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.car-card p {
+  font-size: 1rem;
+  color: #dcdcdc;
+  margin: 5px 0;
+}
+
+.car-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+}
+
+.car-card:hover img {
+  transform: scale(1.1);
+}
+
+/* تنسيق الأزرار داخل البطاقة */
+.car-card button {
+  background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.car-card button:hover {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+}
+
+.car-card button::before {
+  content: "🚗";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.car-card button:hover::before {
+  left: 10px;
+}
+
+/* زر الحذف */
+.car-card .delete-button {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.car-card .delete-button:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+}
+
+/* تنسيق الفورم */
+.car-form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  border-left: 5px solid #3498db;
+}
+
+.car-form .form-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  text-align: center;
+}
+
+.car-form .form-input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* زر الإرسال */
+.car-form .submit-button {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-form .submit-button::before {
+  content: "🚗";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.car-form .submit-button:hover::before {
+  left: 15px;
+}
+
+.car-form .submit-button:hover {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.8);
+}
+/* تنسيق النجوم المتحركة */
+@keyframes stars {
+  0% { transform: translateY(0px); opacity: 0.7; }
+  50% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 0.7; }
+}
+
+.stars {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #f1c40f;
+  box-shadow: 0 0 10px #f1c40f;
+  border-radius: 50%;
+  animation: stars 1.5s infinite ease-in-out;
+}
+
+/* توزيع النجوم عشوائياً */
+.stars:nth-child(1) { top: 10px; left: 20px; animation-duration: 1.2s; }
+.stars:nth-child(2) { top: 40px; left: 100px; animation-duration: 1.8s; }
+.stars:nth-child(3) { top: 80px; left: 50px; animation-duration: 1.5s; }
+.stars:nth-child(4) { top: 30px; left: 200px; animation-duration: 1.3s; }
+.stars:nth-child(5) { top: 90px; left: 150px; animation-duration: 1.6s; }
+
+/* تأثير الزجاج العصري */
+.car-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 8px solid; /* جانب ملون */
+  overflow: hidden;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* إدراج النجوم داخل كل بطاقة */
+.car-card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.car-card .stars {
+  position: absolute;
+  z-index: 0;
+}
+
+/* تأثير السيارة عند التفاعل مع الأزرار */
+.car-card button {
+  background: linear-gradient(135deg, #3498db, #1f78d1);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-card button::before {
+  content: "🚗";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.car-card button:hover::before {
+  left: 15px;
+}
+
+.car-card button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.8);
+}
+
+/* زر الحذف */
+.car-card .delete-button {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.car-card .delete-button:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+}
+
+/* تنسيق الفورم */
+.car-form {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  border-left: 5px solid #3498db;
+}
+
+/* زر الإرسال */
+.car-form .submit-button {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  padding: 25px 40px; /* تم زيادة الحجم هنا */
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-form .submit-button::before {
+  content: "🚗";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.car-form .submit-button:hover::before {
+  left: 15px;
+}
+
+.car-form .submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.8);
+}
+.car-card button::before {
+  content: "✨";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}.car-card button:hover::before {
+  top: -2px;
+  opacity: 1;
+}
+.cancel{
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00;  /* الخلفية باللون الأصفر */
+  color: #000;  /* النص باللون الأسود */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modal-content {
+  background-color:rgba(14, 13, 13, 0);;
+  border: 2px solid #ffcc00; /* حدود باللون الأصفر */
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* عرض المودال */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
+  color: #fff; /* النص باللون الأبيض */
+}
+
+.modal-content h2 {
+  color: #ffcc00; /* عنوان باللون الأصفر */
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea,
+.modal-content select {
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ffcc00; /* حدود صفراء */
+  border-radius: 5px;
+  background-color: #222; /* خلفية سوداء */
+  color: #fff; /* نص أبيض */
+  font-size: 1em;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="number"]:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: #e6b800; /* حدود صفراء أغمق عند التفاعل */
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* تأثير مضيء */
+}
+
+.modal-content button {
+  background-color: #ffcc00; /* زر بخلفية صفراء */
+  color: #000; /* نص أسود */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  
+}
+
+.modal-content button:hover {
+  background-color: #e6b800; /* لون أصفر أغمق عند التمرير */
+}
+
+.modal-content .cancel {
+  background-color: #222; /* زر إلغاء بخلفية سوداء */
+  color: #ffcc00; /* نص أصفر */
+  border: 2px solid #ffcc00;
+}
+
+.modal-content .cancel:hover {
+  background-color: #333; /* لون داكن أكثر عند التمرير */
+  color: #fff; /* نص أبيض */
+}
+.modal {
+  opacity: 0; /* اجعل المودال غير مرئي في البداية */
+  transform: scale(0.8); /* تصغير المودال قليلاً */
+  animation: modal-fade-in 0.3s forwards; /* تطبيق تأثير الدخول */
+}
+
+@keyframes modal-fade-in {
+  to {
+    opacity: 1; /* جعله مرئيًا */
+    transform: scale(1); /* حجمه الطبيعي */
+  }
+}
+.modal {
+  position: fixed; /* يجعل المودال مثبتًا بالنسبة للشاشة */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+  display: flex;
+  align-items: center; /* توسيط رأسي */
+  justify-content: center; /* توسيط أفقي */
+  z-index: 9999; /* فوق جميع العناصر */
+}
+.edit-button{
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }  
+  .edit-button:hover {
+    background-color: #35dc49; /* لون أحمر عند التمرير */
+  }
+
+  .login-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .loginn-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* تأثير ظل */
+    width: 300px; /* عرض ثابت للفورم */
+    text-align: center;
+  }
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* لضمان أن الحشوة لا تؤثر على الحجم */
+    font-size: 1rem;
+  }
+  .log-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* لون أخضر هادئ */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .log-button:hover {
+    background-color: #45a049; /* لون أخضر أغمق عند التمرير فوقه */
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* تأكد من أن الصفحة تأخذ كامل ارتفاع الشاشة */
+    margin: 0;
+  }
+  
+  .fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .fab-button {
+    margin-bottom: 10px;
+  }
+  
