@@ -1,4 +1,311 @@
-body{
-background-color: rgb(70, 63, 63);
-background-image: none;
-}
+/* --- الأساسيات --- */
+
+/* خلفية المودال */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* أيقونة السيارة المتحركة */
+  .car-icon {
+    display: inline-block;
+    margin-right: 8px;
+    animation: moveCar 1s infinite alternate ease-in-out;
+  }
+  @keyframes moveCar {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(10px); }
+  }
+  
+  /* محتوى المودال */
+  .modal-content {
+    border: 2px solid #447393;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: slideDown 0.5s ease;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* تنسيق العناوين داخل المودال */
+  .modal-content h2 {
+    margin-top: 0;
+    text-align: center;
+    color: white;
+  }
+  
+  /* تنسيق النموذج داخل المودال */
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-content input[type="text"],
+  .modal-content input[type="number"],
+  .modal-content input[type="file"] {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .modal-content button {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  /* زر التحديث */
+  .modal-content button[type="submit"] {
+    background-color: #44739349;
+    color: #fff;
+  }
+  .modal-content button[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+  /* زر الإلغاء */
+  .modal-content button[type="button"] {
+    background-color: #44739349;
+    color: #fff;
+  }
+  .modal-content button[type="button"]:hover {
+    background-color: #c0392b;
+  }
+  
+  /* تنسيق صندوق الحوار لتأكيد الحذف */
+  .delete-dialog .MuiPaper-root {
+    background: transparent;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: slideDown 0.5s ease;
+  }
+  .delete-dialog .MuiDialogTitle-root {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .delete-dialog .MuiDialogContent-root {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .delete-dialog .MuiDialogActions-root {
+    justify-content: center;
+    padding: 15px;
+  }
+  .delete-dialog .MuiButton-root {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    color: #333;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .delete-dialog .MuiButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.133);
+    transform: scale(1.05);
+  }
+  .dialogtext {
+    color: white;
+  }
+  .dialog-container .MuiPaper-root {
+    background: transparent;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: slideDown 0.5s ease;
+  }
+  .dialog-container .MuiDialogTitle-root {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .dialog-container .MuiDialogContent-root {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .dialog-container .MuiDialogActions-root {
+    justify-content: center;
+    padding: 15px;
+  }
+  .dialog-container .MuiButton-root {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    color: #333;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .dialog-container .MuiButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.133);
+    transform: scale(1.05);
+  }
+  .dialogtext {
+    color: white;
+  }
+  .welcome {
+    font-size: 2em;
+    color:whitesmoke; /* يمكنك تغيير اللون هنا */
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 3s; /* يبدأ بعد حركة السيارة */
+margin-top: 500px;
+padding-bottom:-70px;
+  }
+  
+  /* --- استعلامات الوسائط (Media Queries) --- */
+  
+  Mobile Portrait: من 0px إلى 575px
+  @media (max-width: 560px)and(max-width:350px) {
+    .modal-content {
+      padding: 1.5rem;
+      max-width: 90%;
+    }
+    .modal-content h2 {
+      font-size: 1.5rem;
+    }
+    .modal-content input,
+    .modal-content button {
+      font-size: 0.9rem;
+    }
+    .delete-dialog .MuiDialogTitle-root {
+      font-size: 1.5rem;
+    }
+    .delete-dialog .MuiDialogContent-root,
+    .dialog-container .MuiDialogContent-root {
+      font-size: 1rem;
+    }
+
+
+  }
+  
+  /* Mobile Landscape: من 576px إلى 767px */
+  @media (min-width: 576px) and (max-width: 767px) {
+    .modal-content {
+      padding: 1.75rem;
+      max-width: 95%;
+    }
+    .modal-content h2 {
+      font-size: 1.6rem;
+    }
+    .modal-content input,
+    .modal-content button {
+      font-size: 1rem;
+    }
+    .delete-dialog .MuiDialogTitle-root {
+      font-size: 1.6rem;
+    }
+    .delete-dialog .MuiDialogContent-root,
+    .dialog-container .MuiDialogContent-root {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Tablet: من 768px إلى 991px */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .modal-content {
+      padding: 2rem;
+      max-width: 500px;
+    }
+    .modal-content h2 {
+      font-size: 1.8rem;
+    }
+    .modal-content input,
+    .modal-content button {
+      font-size: 1rem;
+    }
+    .delete-dialog .MuiDialogTitle-root {
+      font-size: 1.8rem;
+    }
+    .delete-dialog .MuiDialogContent-root,
+    .dialog-container .MuiDialogContent-root {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Laptop: من 992px إلى 1199px */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .modal-content {
+      padding: 2rem;
+      max-width: 550px;
+    }
+    .modal-content h2 {
+      font-size: 2rem;
+    }
+    .modal-content input,
+    .modal-content button {
+      font-size: 1.1rem;
+    }
+    .delete-dialog .MuiDialogTitle-root {
+      font-size: 2rem;
+    }
+    .delete-dialog .MuiDialogContent-root,
+    .dialog-container .MuiDialogContent-root {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* Desktop: 1200px فما فوق */
+  @media (min-width: 1200px) {
+    .modal-content {
+      padding: 2.5rem;
+      max-width: 600px;
+    }
+    .modal-content h2 {
+      font-size: 2.2rem;
+    }
+    .modal-content input,
+    .modal-content button {
+      font-size: 1.2rem;
+    }
+    .delete-dialog .MuiDialogTitle-root {
+      font-size: 2.2rem;
+    }
+    .delete-dialog .MuiDialogContent-root,
+    .dialog-container .MuiDialogContent-root {
+      font-size: 1.4rem;
+    }
+  }
+  
+  

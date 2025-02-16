@@ -1,0 +1,131 @@
+.dialog-container .MuiPaper-root {
+    background: transparent;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: slideDown 0.5s ease;
+    border: 4px solid transparent; /* لتحديد حدود شفافة */
+    border-image: linear-gradient(to right, #0077b6, #00b4d8, #90e0ef) 1; /* تدرج اللون في الحدود */
+  }
+  
+  .dialog-container .MuiDialogTitle-root {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .fab-button {
+    margin-bottom: 10px;
+  }
+  .dialog-container .MuiDialogContent-root {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .dialog-container .MuiDialogActions-root {
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .dialog-container .MuiButton-root {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    color: #333;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dialog-container .MuiButton-root:hover {
+    background-color: rgba(176, 165, 209, 0.133);
+    transform: scale(1.05);
+  }
+  
+  .dialogtext {
+    color: white;
+  }
+  /* حاوية الرسالة */
+.welcome-message {
+  font-size: 2em;
+  color:white;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-delay: 3s; /* يبدأ بعد حركة السيارة */
+}
+
+/* حركة الرسالة عبر تأثير fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* حاوية السيارة العلوية التي تتحرك عبر الشاشة */
+.car-container.car1 {
+  position: absolute;
+  top: 10px;  /* يتم ضبط هذه القيمة لتحريك السيارة في أعلى الصفحة */
+  left: -100px;  /* تبدأ السيارة من خارج الشاشة */
+  animation: driveAcross 5s linear forwards;  /* الحركة من اليسار لليمين */
+}
+
+/* السيارة */
+.car {
+  font-size: 50px;
+}
+
+/* حركة السيارة العلوية من اليسار إلى اليمين عبر الشاشة */
+@keyframes driveAcross {
+  0% {
+    left: -100px;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* حاوية السيارة السفلية التي ستكون أسفل النص */
+.car-container.car2 {
+  position: absolute;
+  bottom: 20px; /* تحديد المسافة من الأسفل */
+  left: -100px;
+  animation: driveBelow 10s linear infinite;  /* الحركة المستمرة */
+}
+
+/* حركة السيارة السفلية بشكل دائم عبر الشاشة */
+@keyframes driveBelow {
+  0% {
+    left: -100px;
+    opacity: 1;
+  }
+  50% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+

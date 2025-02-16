@@ -6,6 +6,7 @@ const connectDB=require('./config/db')
 const milaroutes=require('./routes/milaroutes')
 const userroutes=require('./routes/userroutes')
 const postbooking=require('./routes/bookingroutes')
+const ReservationRoutes=require('./routes/ReservationRoutes')
 // const Bookingroutes = require('./routes/Bookingroutes');
 
 
@@ -18,6 +19,8 @@ app.use(cors());
 app.use('/api',milaroutes)
 app.use('/api',userroutes)
 app.use('/api',postbooking)
+app.use('/api',ReservationRoutes)
+
 
 // app.use('/api', Bookingroutes);
 

@@ -1,0 +1,464 @@
+/*  */
+  
+  
+  .card-details .car-name h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .card-details .car-name .phone-number,
+  .card-details .car-name .car-year {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .card-details .car-name .phone-number {
+    font-weight: 600;
+    color: #007BFF; /* لون جذاب لرقم الهاتف */
+  }
+  
+  .card-details .car-name .car-year {
+    font-weight: 600;
+    color: #28a745; /* لون جذاب لسنة الصنع */
+  }
+  
+  /* تنسيق الصور */
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  /* تنسيق النصوص */
+  .phone-number, .car-year {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  
+
+.card-details {
+    
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-details:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .car-name h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    background: linear-gradient(45deg, #3498db, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .car-name p {
+    font-size: 1rem;
+    color: #333;
+    background: #ecf0f1;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+}
+
+.reservation-container {
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); */
+  padding: 20px;
+  /* position: relative; */
+  overflow-x: hidden;
+  margin-top: 400px;
+
+}
+
+.moving-car {
+  position: absolute;
+  font-size: 40px;
+  top: 50%;
+  animation: carMove 15s linear infinite;
+  opacity: 0.1;
+  z-index: 0;
+}
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .fab-button {
+    margin-bottom: 10px;
+  }
+.main-title {
+
+  text-align: center;
+  color: #2d3436;
+  font-size: 2rem;
+  margin: 0rem 0;
+  position: relative;
+  z-index: 1;
+  /* margin-top: -10px; */
+  margin-bottom: 100px;
+
+}
+
+.year {
+  display: block;
+  color: #e67e22;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 15px;
+}
+
+/* .reservation-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+} */
+
+.reservation-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-info h3 {
+  color: #2d3436;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.user-info p {
+  color: #f3860a;
+  font-size: 0.9rem;
+}
+
+.image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.car-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f1f2f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.card-details {
+  border-top: 1px solid #cd1a1a;
+  padding-top: 1rem;
+}
+
+.car-name {
+  background: #f8f9fa;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.car-name p {
+  color: #2d3436;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0;
+}
+/* هون تعديل التاريخ */
+.date-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: rem; */
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  width: 350px;
+  font-size: large;
+  
+}
+
+.start-date {
+  background: #fff3e0;
+}
+
+.end-date {
+  background: #e8f5e9;
+}
+
+.date-box span {
+  color: #636e72;
+}
+
+.date-box strong {
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.loading p {
+  color: #636e72;
+  font-size: 1.1rem;
+  
+}
+
+.loading-car {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  animation: bounce 1s infinite;
+}
+
+@keyframes carMove {
+  0% { left: -100px; transform: translateY(-50%) rotateY(180deg); }
+  100% { left: calc(100% + 100px); transform: translateY(-50%) rotateY(180deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+/* تعديل وسائط متجاوبة لجميع الأجهزة */
+/* أجهزة كبيرة (أجهزة كمبيوتر مكتبية) */
+/* تنسيق الشاشات الكبيرة (أجهزة الكمبيوتر) */
+@media (min-width: 1200px) {
+    .reservation-container {
+        padding: 30px;
+        margin-top: 500px;
+    }
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* أجهزة متوسطة (أجهزة لوحية أفقية) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* أجهزة صغيرة (أجهزة لوحية عمودية) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+/* هواتف محمولة كبيرة */
+@media (min-width: 576px) and (max-width: 768px) {
+    .reservation-container {
+        padding: 15px;
+        margin-top: 150px;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+}
+
+/* هواتف محمولة صغيرة جدًا */
+@media (max-width: 575px) {
+    .reservation-container {
+        padding: 10px;
+        margin-top: 120px;
+    }
+    .main-title {
+        font-size: 1.4rem;
+    }
+    .cards-grid {
+        gap: 0.8rem;
+    }
+    .date-box {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* شاشات من 350px إلى 560px */
+@media (min-width: 350px) and (max-width: 560px) {
+    .reservation-container {
+        padding: 10px;
+        margin-top: 3200px; /* تقليل المسافة العلوية */
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-direction: column; /* ترتيب البطاقات عاموديًا */
+        align-items: center; /* توسيط البطاقات أفقيًا */
+        gap: 1rem; /* زيادة المسافة بين البطاقات */
+    }
+
+    .reservation-card {
+        width: 90%; /* تقليل العرض لمنع الالتصاق */
+        max-width: 300px; /* تحديد عرض أقصى للبطاقات */
+        padding: 3px;
+    }
+
+    .image-container {
+        width: 60px;
+        height: 60px; /* تصغير الصور */
+    }
+
+    .date-box {
+        font-size: 0.85rem; /* تقليل حجم النص */
+        padding: 0px;
+        width: 100%; /* التأكد من أن العنصر يستخدم العرض بالكامل */
+        white-space: normal; /* السماح بانكسار النص */
+    }
+
+    .car-name h3 {
+        font-size: 1rem;
+    }
+
+    .phone-number, .car-year {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* شاشات أصغر من 400px */
+@media (max-width: 400px) {
+    .main-title {
+        font-size: 1.2rem;
+        margin: 0rem 0;
+        margin-top: 10px;
+    }
+    .date-box strong {
+        display: block;
+        margin-top: 3px;
+    }
+}
+@media (min-width: 591px) and (max-width: 768px) {
+    .reservation-container {
+        margin-top: 2850px; /* زيادة المسافة العلوية */
+    }
+
+    .cards-grid {
+        gap: 1.5rem; /* زيادة المسافة بين البطاقات */
+    }
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        justify-content: center; /* توسيط البطاقات */
+        max-width: 100%; /* منع التمدد الزائد */
+        margin: 0 auto; /* ضمان عدم انحراف الشبكة */
+    }
+}
+/* شاشات بين 767px و 1198px */
+@media (min-width: 767px) and (max-width: 1198px) {
+    .main-title {
+        font-size: 1.2rem;
+        margin: 0rem 0;
+        margin-top: 5000px; /* رفع المسافة العلوية لتظهر البطاقات بشكل كامل */
+    }
+    .reservation-container {
+        padding: 20px; /* زيادة padding للمساحة حول الحاوية */
+        margin-top: px; /* زيادة المسافة العلوية */
+        margin-left: -110px;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* عرض 3 أعمدة بدلاً من 2 */
+        gap: 1.5rem; /* زيادة المسافة بين الأعمدة */
+    }
+
+    .reservation-card {
+        padding: 10px; /* تعديل padding للبطاقات */
+    }
+
+    .image-container {
+        width: 80px;
+        height: 80px; /* زيادة حجم الصور */
+    }
+
+    .date-box {
+        font-size: 1rem; /* ضبط حجم الخط */
+        padding: 0px;
+    }
+
+    .car-name h3 {
+        font-size: 1.1rem;
+    }
+
+    .phone-number, .car-year {
+        font-size: 0.95rem;
+    }
+}

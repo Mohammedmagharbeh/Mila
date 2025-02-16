@@ -1,0 +1,376 @@
+/* booking.css */
+
+/* تعريف المتغيرات الأساسية */
+:root {
+  --primary-color: #2b2d42;
+  --secondary-color: #8d99ae;
+  --accent-color: #ef233c;
+  --background-color: #edf2f4;
+  --card-background: #ffffff;
+  --text-color: #2b2d42;
+  --shadow-color: rgba(43, 45, 66, 0.2);
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+}
+
+/* تنسيق الجسم */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #edf2f4, #8d99ae);
+  color: var(--text-color);
+}
+
+/* صفحة الحجوزات */
+.reservations-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* عنوان الصفحة */
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 200px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* رسالة الخطأ */
+.error-message {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* الحالة الفارغة */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: var(--card-background);
+  border: 2px dashed var(--secondary-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  margin-top: 2rem;
+}
+
+.empty-state img {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* شبكة البطاقات */
+.reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* بطاقة الحجز */
+.reservation-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  overflow: hidden;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  width: 380px; /* تحديد عرض أصغر */
+  height: 380px; /* تحديد ارتفاع أصغر */
+  margin: 10px; 
+  margin-top: -50px; /* تعديل القيمة حسب الحاجة */
+
+}
+
+.reservation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+/* تمييز البطاقات النشطة والمنتهية */
+.reservation-card.active {
+  border-left: 6px solid var(--primary-color);
+}
+
+.reservation-card.expired {
+  border-left: 6px solid #cccccc;
+  opacity: 0.9;
+}
+
+/* رأس البطاقة */
+.card-header {
+  display: flex;
+  padding: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+}
+
+.car-image-container {
+  flex: 0 0 100px;
+  width: 450px;
+  height: 70px;
+  margin-right: 1.5rem;
+  border-radius: 40%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-image {
+  width: 100px;
+  height: 100%;
+  object-fit: contain;
+
+}
+
+.image-placeholder {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+/* معلومات السيارة */
+.car-info h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.car-info .price {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: var(--accent-color);
+}
+
+/* جسم البطاقة */
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+/* زر تمديد الحجز */
+.button-container {
+  display: flex;
+  gap: 15px; /* يحدد المسافة بين الأزرار */
+  justify-content: flex-end; /* لضبط الأزرار إلى اليمين */
+  
+  
+}
+
+.action-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.action-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+  .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  
+  .car-image-container {
+      margin-right: 0;
+      margin-bottom: 1rem;
+  }
+
+  .reservations-grid {
+      grid-template-columns: repeat(1, 1fr); /* عرض عمود واحد عند تصغير الشاشة */
+  }
+
+  .button-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+  }
+}
+/* التصميم المتجاوب */
+@media (max-width: 1024px) {
+  .reservations-page {
+    padding: 2rem 1rem; /* تقليل المسافة الداخلية على الشاشات الصغيرة */
+  }
+
+  .page-title {
+    font-size: 2.5rem; /* تقليل حجم الخط على الشاشات الصغيرة */
+  }
+
+  .reservations-grid {
+    grid-template-columns: repeat(2, 1fr); /* عرض عمودين عند تصغير الشاشة */
+  }
+
+  .reservation-card {
+    width: 100%; /* البطاقة تأخذ عرض كامل عند الشاشات الصغيرة */
+    height: auto; /* ارتفاع البطاقة يتغير تلقائيًا */
+  }
+
+  .cta-button {
+    font-size: 1.1rem; /* تقليل حجم الخط في الأزرار */
+    padding: 0.8rem 1.5rem; /* تقليل حجم الزر */
+  }
+}
+
+@media (max-width: 768px) {
+  .reservations-page {
+    padding: 1.5rem 0.5rem; /* تقليل المسافة الداخلية بشكل أكبر */
+  }
+
+  .page-title {
+    font-size: 2rem; /* تقليل حجم الخط بشكل أكبر */
+  }
+
+  .reservations-grid {
+    grid-template-columns: 1fr; /* عمود واحد فقط على الشاشات الصغيرة جدًا */
+  }
+
+  .reservation-card {
+    width: 100%;
+    height: auto;
+    margin: 10px 0; /* تقليل المسافة بين البطاقات */
+  }
+
+  .cta-button {
+    width: 100%; /* جعل الزر يمتد ليشغل كامل العرض */
+    padding: 1rem; /* زيادة المسافة الداخلية للزر */
+  }
+
+  .action-button {
+    width: 100%; /* جعل الأزرار تمتد على العرض */
+    padding: 0.8rem; /* زيادة المسافة الداخلية للأزرار */
+  }
+
+  .button-container {
+    flex-direction: column; /* ترتيب الأزرار عموديًا */
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem; /* تقليل حجم العنوان بشكل أكبر للأجهزة الصغيرة جدًا */
+  }
+
+  .cta-button {
+    font-size: 1rem; /* تقليل حجم الخط في الأزرار بشكل أكبر */
+    padding: 0.8rem 1.2rem; /* تقليل حجم الزر */
+  }
+
+  .reservation-card {
+    margin: 8px 0; /* تقليل المسافة بين البطاقات */
+  }
+
+  .car-image-container {
+    width: 80px; /* تقليل حجم الصورة الصغيرة */
+    height: 80px; /* تقليل الارتفاع لتناسب العرض */
+  }
+
+  .car-info h3 {
+    font-size: 1.6rem; /* تقليل حجم النص للمعلومات */
+  }
+
+  .car-info .price {
+    font-size: 1rem; /* تقليل حجم السعر */
+  }
+}
+
+@media (max-width: 760px) and (min-width: 350px) {
+  .reservations-page {
+    padding: 1.5rem 0.5rem; /* زيادة المسافة الداخلية ليكون المحتوى أكثر تنسيقًا */
+  }
+
+  .page-title {
+    font-size: 2.2rem; /* حجم العنوان أكبر قليلاً مع تعديل المسافات */
+    text-align: left;
+    margin-left: 1rem;
+  }
+
+  .reservations-grid {
+    grid-template-columns: 1fr 1fr; /* استخدام عمودين بدلاً من 3 على الشاشات ذات العرض المتوسط */
+    gap: 1.5rem; /* تقليل المسافة بين البطاقات */
+  }
+
+  .reservation-card {
+    width: 100%; /* جعل البطاقة تأخذ عرض الشاشة بشكل كامل */
+    height: auto; /* تعديل الارتفاع ليكون تلقائي */
+    margin: 0 auto; /* محاذاة البطاقات بشكل أفضل في الوسط */
+    max-width: 380px; /* تحديد أقصى عرض للبطاقات */
+  }
+
+  .cta-button {
+    font-size: 1.1rem; /* تقليل حجم الخط للزر بحيث يكون مناسبًا */
+    padding: 1rem 1.8rem; /* تعديل المسافات الداخلية للزر */
+    width: 100%; /* جعل الزر يأخذ عرض كامل */
+    margin-top: 1.5rem;
+  }
+
+  .action-button {
+    font-size: 1rem; /* تقليل حجم الخط في الأزرار */
+    padding: 0.8rem 1.2rem; /* تعديل المسافة الداخلية للأزرار */
+    width: 100%; /* جعل الأزرار تأخذ العرض الكامل */
+  }
+
+  .button-container {
+    flex-direction: column; /* ترتيب الأزرار عموديًا */
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .car-image-container {
+    width: 90px; /* تعديل عرض الصورة لتناسب الشاشات المتوسطة */
+    height: 90px; /* ضبط ارتفاع الصورة لتناسب العرض */
+  }
+
+  .car-info h3 {
+    font-size: 1.6rem; /* تقليل حجم النص للمعلومات لتناسب الشاشات المتوسطة */
+  }
+
+  .car-info .price {
+    font-size: 1.1rem; /* تقليل حجم النص للسعر */
+  }
+
+  .error-message {
+    font-size: 1rem; /* تعديل حجم الخط في رسائل الخطأ لتتناسب مع الشاشات الصغيرة */
+  }
+}
+
