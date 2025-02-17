@@ -18,7 +18,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EngineeringSharpIcon from '@mui/icons-material/EngineeringSharp';
-
 import {
   GridRowModes,
   DataGrid,
@@ -81,14 +80,19 @@ const initialRows = [
 function EditToolbar(props) {
   if (window.location.pathname === '/user') {
    
-    document.body.style.backgroundImage = "url('https://media.istockphoto.com/id/2148110386/photo/silhouette-generic-sedan-headlights-on.jpg?s=612x612&w=0&k=20&c=ylCatA6WAadFkQQuWMeBtPrQW9fAzmyUa5L0MncldUM=')";
+    document.body.style.backgroundImage = "url('https://media.istockphoto.com/id/2074939734/photo/the-black-and-silver-are-light-gray-with-white-the-gradient-is-the-surface-with-templates.jpg?s=2048x2048&w=is&k=20&c=Lkl4n-mEtmLpU6FWy8h81YrHfy3jBg_MaMHkkmSQkrc=')";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
 
 
   }
   const { setRows, setRowModesModel } = props;
+  const navigate=useNavigate()
+  const token = sessionStorage.getItem('jwt');
 
+  if (!token) {
+    navigate("/login");
+  } 
   const handleClick = () => {
     const id = generateRandomId(); // استخدام الدالة المعرفة generateRandomId بدلاً من randomId
     setRows((oldRows) => [
@@ -103,10 +107,15 @@ function EditToolbar(props) {
 
   return (
     <GridToolbarContainer>
-      <Button color="" startIcon={<AddIcon />} onClick={handleClick}
-      >
-        Add user
-      </Button>
+      <Button
+  color="primary"  // or any color you want for the button background
+  startIcon={<AddIcon />}
+  onClick={handleClick}
+  sx={{ color: 'white' }}  // This changes the text color to white
+>
+  Add user
+</Button>
+
     </GridToolbarContainer>
   );
 }
@@ -298,12 +307,12 @@ export default function FullFeaturedCrudGrid() {
       transition: 'border-color 0.3s ease',
     },
     '& .MuiDataGrid-cell': {
-      border: '2px solid #e0e0e0',
+      border: '2px solidrgb(24, 7, 7)',
       transition: 'border-color 0.3s ease',
       color: 'white',  // تعديل لون النص ليكون أبيض هنا
       fontWeight: 'bold',
       fontSize: 'large',
-      boxShadow: '0 5px 15px rgba(25, 86, 5, 0.93)',
+      boxShadow: '0 5px 15px rgba(10, 10, 10, 0)',
     },
     '& .MuiDataGrid-root:hover .MuiDataGrid-columnHeaders': {
       borderColor: '#blue',

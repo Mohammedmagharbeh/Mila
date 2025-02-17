@@ -7,17 +7,18 @@ import NotificationAddSharpIcon from '@mui/icons-material/NotificationAddSharp';
 import LogoutSharpIcon from '@mui/icons-material/LogoutSharp';
 import { Button, Fab, Modal, Box, TextField, Typography } from '@mui/material';
 
-if (window.location.pathname === '/foruser') {
-   
-  document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1739382122928-589c2221853c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
 
-
-} 
 
 
 function Foruser() {
+  if (window.location.pathname === '/foruser') {
+   
+    document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1739382122928-589c2221853c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
+  
+  
+  } 
   const [cars, setmilacars] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
@@ -142,7 +143,7 @@ function Foruser() {
   return (
     <>
    <h1 className="welcome-message">
-    أهلاً بك{sessionStorage.getItem("username")}  في Mila RentCar
+    MilaRentCar في {sessionStorage.getItem("username")}  أهلاً بك
 </h1>
 
 {/* حاوية السيارة الأولى المتحركة */}
@@ -223,19 +224,19 @@ function Foruser() {
               onChange={(e) => setEndDate(e.target.value)}
               sx={{ marginBottom: '20px' }}
             />
-            <TextField
+          <TextField
   label="07********"
   type="number"
   fullWidth
   value={phone}
   onChange={(e) => {
-    const newValue = e.target.value;
-    if (newValue.length <= 10) {
-      setphone(newValue);
-    }
+    const newValue = e.target.value.slice(0, 10); // تقصير الإدخال إلى 10 أرقام فقط
+    setphone(newValue);
   }}
+  inputProps={{ maxLength: 10 }}
   sx={{ marginBottom: '20px' }}
 />
+
 
           </div>
           <div style={{ marginTop: '20px' }}>

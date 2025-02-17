@@ -3,11 +3,7 @@ import { postregitrer } from '../back/api';
 import '../css/registrerion.css';
 import { useNavigate } from 'react-router-dom';
 
-if (window.location.pathname === '/Registration') {
-  document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1556448851-9359658faa54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fHJlZ2lzdHJhdGlvbiUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";
-}
+
 
 // دالة لحساب قوة كلمة المرور
 function calculatePasswordStrength(password) {
@@ -19,7 +15,6 @@ function calculatePasswordStrength(password) {
   if (/[^A-Za-z0-9]/.test(password)) strength++; // وجود رمز خاص
   return strength;
 }
-
 // دالة لتحديد لون الشريط بناءً على القوة
 function getStrengthColor(strength) {
   switch (strength) {
@@ -33,6 +28,11 @@ function getStrengthColor(strength) {
 }
 
 function RegistrationForm() {
+  if (window.location.pathname === '/Registration') {
+    document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1556448851-9359658faa54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fHJlZ2lzdHJhdGlvbiUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D')";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  }
   const [logData, setlogData] = useState({ username: '', email: '', password: '', confirmPassword: '' });
   const navigate = useNavigate();
 

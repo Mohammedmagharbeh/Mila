@@ -6,13 +6,6 @@ import { Button, Fab, Badg,} from '@mui/material';
 import EngineeringSharpIcon from '@mui/icons-material/EngineeringSharp';
 
 function UserReservations() {
-  const [bookingInfo, setBookingInfo] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
-  // حالات لإدارة عملية التحديث
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [updatedBookingDate, setUpdatedBookingDate] = useState('');
-  const [updatedEndDate, setUpdatedEndDate] = useState('');
-  const navigate=useNavigate()
   if (window.location.pathname === '/Booking') {
    
     document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGNhcnxlbnwwfHwwfHx8MA%3D%3D')";
@@ -21,8 +14,19 @@ function UserReservations() {
   
   
   }
+  const [bookingInfo, setBookingInfo] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  // حالات لإدارة عملية التحديث
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [updatedBookingDate, setUpdatedBookingDate] = useState('');
+  const [updatedEndDate, setUpdatedEndDate] = useState('');
+  const navigate=useNavigate()
+  const token = sessionStorage.getItem('jwt');
+ 
   useEffect(() => { 
-    const token = sessionStorage.getItem('jwt');
+    if (!token) {
+      navigate("/login");
+    } 
     if (!token) {
       console.error("التوكن غير موجود في sessionStorage!");
       setErrorMessage("لم يتم العثور على التوكن، الرجاء تسجيل الدخول مرة أخرى.");

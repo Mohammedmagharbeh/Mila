@@ -1,13 +1,12 @@
 body {
   font-family: 'Poppins', sans-serif;
-background-color: rgb(70, 63, 63);
  
   /* background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhcnxlbnwwfHwwfHx8MA%3D%3D'); */
   background-repeat: no-repeat; /* لمنع التكرار */
   background-size: cover; /* لتغطية الخلفية بالكامل */
   background-position: center; /* لتركيز الصورة في المنتصف */
   margin: 0;
-  padding: 20px;
+  /* padding: 20px; */
   color: #0e0505;
   overflow-x: hidden;
 }

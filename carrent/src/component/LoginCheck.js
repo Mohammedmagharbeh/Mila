@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import "../css/log.css";
-if (window.location.pathname === '/login') {
-   
-    document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1739382122928-589c2221853c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
-  
-  
-  } 
+
   
 const Login = () => {
+
+    if (window.location.pathname === '/login') {
+        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1739382122928-589c2221853c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
+      
+      } 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();

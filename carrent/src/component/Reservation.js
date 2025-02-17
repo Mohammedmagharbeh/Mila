@@ -7,18 +7,25 @@ import EngineeringSharpIcon from '@mui/icons-material/EngineeringSharp';
 
 
 
-if (window.location.pathname === '/Reservation') {
-   
-  document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
 
-
-}
 function Reservation() {
+  if (window.location.pathname === '/Reservation') {
+   
+    document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";  // جعل الصورة تغطي الشاشة بالكامل
+  
+  
+  }
+  const token = sessionStorage.getItem('jwt');
+
   const [reservations, setReservations] = useState([]);
 const navigate=useNavigate()
   useEffect(() => {
+
+    if (!token) {
+      navigate("/login");
+    } 
     const fetchReservations = async () => {
       try {
         const res = await axios.get('http://127.0.0.1:5000/api/gettReservation');
@@ -42,8 +49,7 @@ const navigate=useNavigate()
       <div className="moving-car">🚗</div>
       
       <h1 className="main-title">
-        الحجوزات🚗
-        <span className="year">2025</span>
+       الحجوزات🚗   
       </h1>
       <div className="fab-container">
         <Fab color="red" aria-label="users" onClick={() => navigate('/')} className="fab-button" title="Admin page"
@@ -78,7 +84,7 @@ const navigate=useNavigate()
               <div className="card-details">
                 <div className="car-name">
                   <h3>
-                    قام ({reservation.username}) بحجز {reservation.carId?.name || reservation.carId}
+                  ({reservation.username})  قام {reservation.carId?.name || reservation.carId}بحجز  
                   </h3>
                   {reservation.carId?.year && (
                     <p className="car-year">سنة الصنع: {reservation.carId.year}</p>

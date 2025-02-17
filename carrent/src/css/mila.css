@@ -192,6 +192,7 @@
     animation-delay: 3s; /* يبدأ بعد حركة السيارة */
 margin-top: 500px;
 padding-bottom:-70px;
+margin-left: 600px;
   }
   
   /* --- استعلامات الوسائط (Media Queries) --- */

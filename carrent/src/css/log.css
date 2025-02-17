@@ -123,7 +123,7 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   }
   
-  * الهواتف (وضع عمودي) */
+  /* * الهواتف (وضع عمودي) */ 
 @media (max-width: 575px) {
     .loginn-form {
         width: 90%;

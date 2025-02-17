@@ -67,6 +67,7 @@
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
   animation-delay: 3s; /* يبدأ بعد حركة السيارة */
+  margin-left: 800px;
 }
 
 /* حركة الرسالة عبر تأثير fade-in */
