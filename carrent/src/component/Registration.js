@@ -3,7 +3,7 @@ import { postregitrer } from '../back/api';
 import '../css/registrerion.css';
 import { useNavigate } from 'react-router-dom';
 
-
+import 
 
 // دالة لحساب قوة كلمة المرور
 function calculatePasswordStrength(password) {

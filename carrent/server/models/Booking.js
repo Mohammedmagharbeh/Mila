@@ -4,7 +4,7 @@ const bookingSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
     cards:[{ carId: { type: mongoose.Schema.Types.ObjectId, ref: 'mila', required: true },
         bookingDate: { type: Date,required:true },
-        endDate:{type:Date,required:true},
+        endDate:{type:Date,required:true},  
        
 
 

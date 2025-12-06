@@ -78,10 +78,9 @@ const Login = () => {
         whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px rgba(255,255,255,0.8)" }}
         whileTap={{ scale: 0.9 }}
       >
-        Create Account
       </motion.button>
     </div>
   );
 };
-
+  
 export default Login;
